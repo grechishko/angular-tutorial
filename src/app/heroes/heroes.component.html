@@ -1,21 +1,20 @@
 <h2>My heroes</h2>
 
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+<div class="input-group mb-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Hero name:</span>
+  </div>
+  <input type="text" class="form-control" #heroName>
+  <div class="input-group-append">
+    <button type="button" class="btn btn-outline-secondary" (click)="add(heroName.value); heroName.value=''">Add</button>
+  </div>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}      
+<ul class="list-group">
+  <li *ngFor="let hero of heroes" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <a routerLink="/detail/{{hero.id}}" class="text-decoration-none text-primary">
+      <span class="badge badge-primary mr-2">{{hero.id}}</span>{{hero.name}}      
     </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
+    <button type="button" class="close" (click)="delete(hero)">&times;</button>
   </li>
 </ul>

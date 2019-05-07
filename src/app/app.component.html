@@ -1,9 +1,11 @@
-<!-- <h1>{{title}}</h1> -->
 <nav class="navbar navbar-expand navbar-light bg-light">
     <span class="navbar-brand h1">{{title}}</span>
-    <div class="navbar-nav">
+    <div class="navbar-nav mx-auto">
         <a class="nav-item nav-link" routerLink="/dashboard" [routerLinkActive]="['active']">Dashboard</a>
         <a class="nav-item nav-link" routerLink="/heroes" [routerLinkActive]="['active']">Heroes</a>
+    </div>
+    <div>
+        <app-hero-search></app-hero-search>
     </div>
 </nav>
 <div class="container">

@@ -1,11 +1,18 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </label>
+<div *ngIf="hero" class="row">  
+  <div class="col col-sm-6 col-lg-4">
+    <h2 class="mb-3">{{hero.name | uppercase}} Details</h2>
+    <div class="text-secondary mb-1">
+      Id: <span class="badge badge-primary">{{hero.id}}</span>
+    </div>
+    <div class="input-group mb-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Name:</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Go back</button>
+      <button type="button" class="btn btn-secondary" (click)="save()">Save</button>
+    </div>    
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
 </div>
