@@ -5,14 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class MessageService {
   messages: string[] = [];
+  flag: boolean = false;
+
+  constructor() { }
 
   add(message: string) {
     this.messages.push(message);
+    this.test();
   }
 
   clear() {
     this.messages = [];
   }
 
-  // constructor() { }
+  test() {
+    this.flag = true;
+    setTimeout(function() {
+      this.flag = false;
+      console.log(this.flag);
+    }, 3000);
+  }
+  
 }
